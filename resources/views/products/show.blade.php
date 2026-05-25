@@ -11,11 +11,18 @@
         <p><strong>Category:</strong> {{ ucfirst($product->category) }}</p>
         <p><strong>Status:</strong> <span style="padding: 2px 5px; border-radius: 3px; background: #eee;">{{ ucfirst(str_replace('_', ' ', $product->status)) }}</span></p>
         <p><strong>Created at:</strong> {{ $product->created_at }}</p>
+        @if($product->archived_at)
+        <p><strong>Archived at:</strong> {{ $product->archived_at }}</p>
+        @endif
     </div>
 
     <br>
     <a href="{{ route('products.edit', $product->id) }}" class="btn btn-edit">Edit this product</a>
-
+    <form action="{{ route('products.archive', $product->id) }}" method="POST" style="display:inline;">
+        @csrf
+        @method('PATCH')
+        <button type="submit" class="btn btn-delete" onclick="return confirm('Archive this product?')">Archive</button>
+    </form>
     <hr style="margin: 30px 0;">
 
     <div style="margin-bottom: 20px;">
