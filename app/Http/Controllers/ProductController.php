@@ -38,7 +38,7 @@ class ProductController extends Controller
 
         $product = Product::create($validated);
 
-        return redirect()->route('products.create',$product)->with('success', 'Product created successfully.');
+        return redirect()->route('products.create',$product)->with('success', 'Product created   successfully.');
     }
 
     /**
@@ -95,6 +95,6 @@ class ProductController extends Controller
 
         $product->update(['status' => $validated['status']]);
 
-        return $product;
+        return redirect()->route('products.show', $product)->with('success', 'Product status updated successfully.');
     }
 }
