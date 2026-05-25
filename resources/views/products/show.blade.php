@@ -12,7 +12,7 @@
         <p><strong>Status:</strong> <span style="padding: 2px 5px; border-radius: 3px; background: #eee;">{{ ucfirst(str_replace('_', ' ', $product->status)) }}</span></p>
         <p><strong>Created at:</strong> {{ $product->created_at }}</p>
         @if($product->archived_at)
-        <p><strong>Archived at:</strong> {{ $product->archived_at }}</p>
+        <p><strong>Archived at:</strong> {{ $product->archived_at }}</p>https://github.com/SumzDayss/PDlaravel_25052026
         @endif
     </div>
 
